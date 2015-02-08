@@ -15,7 +15,7 @@
         "symfony/config": "~2.3",
         "symfony/http-kernel": "~2.3",
         "symfony/console": "~2.3",
-        "twig/extensions": ">=1.12"
+        "twig/twig": ">=1.12"
     },
     "require-dev": {
         "symfony/yaml": "~2.3",
