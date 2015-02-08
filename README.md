@@ -1,7 +1,7 @@
 Advanced Feature Flipper (toggle) for Symfony2
 ==============================================
 
-This bundle provides a feature flipper interface for Symfony2. (Planned) Main features:
+This bundle provides a feature flipper interface for Symfony2. Main features:
 
 - Feature checks in twigs and controllers (via DI)
 - Assigning expiration date to features
