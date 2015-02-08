@@ -7,8 +7,6 @@ This bundle provides a feature flipper interface for Symfony2. Main features:
 - Assigning expiration date to features
 - Assigning responsible people to features
 
-Note: This bundle is not yet available through Composer as it is currently in development!
-
 Installation
 ------------
 
