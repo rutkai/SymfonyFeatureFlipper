@@ -23,6 +23,5 @@
     },
     "autoload": {
         "psr-4": { "Rutkai\\FeatureFlipperBundle": "" }
-    },
-    "target-dir": "Rutkai/FeatureFlipperBundle"
+    }
 }
