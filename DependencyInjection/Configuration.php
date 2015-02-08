@@ -18,11 +18,24 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $treeBuilder->root('rutkai_feature_flipper');
+        $rootNode = $treeBuilder->root('feature');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->children()
+                ->booleanNode('enable_undefined_feature')->defaultTrue()->end()
+                ->integerNode('expiration_warning')->defaultValue(7)->end()
+                ->scalarNode('feature_class')->defaultValue(7)->end()
+                ->arrayNode('features')
+                    ->prototype('array')
+                        ->children()
+                            ->booleanNode('enabled')->isRequired()->defaultTrue()->end()
+                            ->scalarNode('expiration')->end()
+                            ->scalarNode('responsible')->end()
+                            ->scalarNode('responsible_email')->end()
+                        ->end()
+                    ->end() // feature
+                ->end() // features
+            ->end();
 
         return $treeBuilder;
     }

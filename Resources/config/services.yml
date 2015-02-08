@@ -1,0 +1,10 @@
+services:
+    feature.manager:
+        class: Rutkai\FeatureFlipperBundle\Feature\FeatureManager
+        arguments: ["@service_container"]
+
+    twig.features.extension:
+        class: Rutkai\FeatureFlipperBundle\Twig\FeatureExtension
+        arguments: ["@feature.manager"]
+        tags:
+            - { name: twig.extension }
