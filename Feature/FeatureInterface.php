@@ -41,7 +41,7 @@ interface FeatureInterface {
      * @param \DateTime $expiration
      * @return $this
      */
-    public function setExpiration(\DateTime $expiration);
+    public function setExpiration(\DateTime $expiration = null);
 
     /**
      * @return string
@@ -52,6 +52,17 @@ interface FeatureInterface {
      * @param string $responsible
      * @return $this
      */
-    public function setResponsible($responsible);
+    public function setResponsible($responsible = null);
+
+    /**
+     * @return string
+     */
+    public function getResponsibleEmail();
+
+    /**
+     * @param string $email
+     * @return $this
+     */
+    public function setResponsibleEmail($email = null);
 
 }

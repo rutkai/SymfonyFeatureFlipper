@@ -1,0 +1,2 @@
+The feature {{ feature.name }} has been expired on {{ feature.expiration|date('Y-m-d') }}.
+{% if feature.responsible %}Responsible person: {{ feature.responsible }}{% if feature.responsibleEmail %} ({{ feature.responsibleEmail }}){% endif %}{% endif %}

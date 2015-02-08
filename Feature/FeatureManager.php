@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @package Rutkai\FeatureFlipperBundle\Feature
  * @author András Rutkai
  */
-class FeatureManager {
+class FeatureManager implements \IteratorAggregate {
 
     /**
      * @var array
@@ -73,6 +73,13 @@ class FeatureManager {
     }
 
     /**
+     * @inheritdoc
+     */
+    public function getIterator() {
+        return new \ArrayIterator($this->features);
+    }
+
+    /**
      * @param ContainerInterface $container
      */
     protected function loadFeaturesFromConfig(ContainerInterface $container) {
@@ -81,8 +88,9 @@ class FeatureManager {
             $feature = new $featureClass();
             $feature->setName($name);
             $feature->setEnabled($options['enabled']);
-            $feature->setExpiration(new \DateTime($options['expiration']));
+            $feature->setExpiration($options['expiration'] ? new \DateTime($options['expiration']) : null);
             $feature->setResponsible($options['responsible']);
+            $feature->setResponsibleEmail($options['responsible_email']);
 
             $this->addFeature($feature);
         }

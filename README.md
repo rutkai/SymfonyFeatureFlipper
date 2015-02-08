@@ -34,15 +34,23 @@ Usage
     # config.yml
     
     rutkai_feature_flipper:
-        enable_undefined_feature: true  # sets the default strategy for undefined features
-        expiration_warning: 14  # Expiration e-mails will be sent to responsibles if expiration occurs within the next x days
-        feature_class: Rutkai\FeatureFlipperBundle\Feature\Feature  # Default feature container, must implement FeatureInterface
+        enable_undefined_feature: true  # Optional, sets the default strategy for undefined features
+        expiration_warning: 7           # Optional, expiration e-mails will be sent to responsibles if expiration occurs within the next x days
+        feature_class: Rutkai\FeatureFlipperBundle\Feature\Feature  # Optional, default feature container, must implement FeatureInterface
+        templates:
+            warning_console: RutkaiFeatureFlipperBundle:FeatureCheck:warning.txt.twig # Optional, output warning template for feature check command
+            warning_email: RutkaiFeatureFlipperBundle:FeatureCheck:warning.txt.twig   # Optional, e-mail warning template for feature check command
+            alert_console: RutkaiFeatureFlipperBundle:FeatureCheck:alert.txt.twig     # Optional, output alert template for feature check command
+            alert_email: RutkaiFeatureFlipperBundle:FeatureCheck:alert.txt.twig       # Optional, e-mail alert template for feature check command
+        email:
+            from: architect@example.com # Required, sender of the warning
+            subject: Expired feature    # Optional, subject for the warnings
         features:
             feature_id:
-                enabled: true
-                expiration: 2015-03-03 12:00:00
-                responsible: "András Rutkai"
-                responsible_email: email@domain.com
+                enabled: true                       # Required
+                expiration: "2015-03-03 12:00:00"   # Optional
+                responsible: "András Rutkai"        # Optional
+                responsible_email: email@domain.com # Optional
             feature_id_2:
                 enabled: false
                 expiration: ~   # no expiration

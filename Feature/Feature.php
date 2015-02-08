@@ -25,9 +25,14 @@ class Feature implements FeatureInterface {
     protected $expiration;
 
     /**
-     * @var
+     * @var string
      */
     protected $responsible;
+
+    /**
+     * @var string
+     */
+    protected $responsibleEmail;
 
 
     /**
@@ -72,7 +77,7 @@ class Feature implements FeatureInterface {
     /**
      * @inheritdoc
      */
-    public function setExpiration(\DateTime $expiration) {
+    public function setExpiration(\DateTime $expiration = null) {
         $this->expiration = $expiration;
 
         return $this;
@@ -88,8 +93,24 @@ class Feature implements FeatureInterface {
     /**
      * @inheritdoc
      */
-    public function setResponsible($responsible) {
+    public function setResponsible($responsible = null) {
         $this->responsible = $responsible;
+
+        return $this;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getResponsibleEmail() {
+        return $this->responsibleEmail;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setResponsibleEmail($email = null) {
+        $this->responsibleEmail = $email;
 
         return $this;
     }
