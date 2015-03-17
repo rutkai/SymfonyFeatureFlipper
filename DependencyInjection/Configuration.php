@@ -26,6 +26,7 @@ class Configuration implements ConfigurationInterface
                 ->integerNode('expiration_warning')->defaultValue(7)->end()
                 ->scalarNode('feature_class')->defaultValue('Rutkai\FeatureFlipperBundle\Feature\Feature')->end()
                 ->arrayNode('template')
+                    ->addDefaultsIfNotSet()
                     ->children()
                         ->scalarNode('warning_console')->defaultValue('RutkaiFeatureFlipperBundle:FeatureCheck:warning.txt.twig')->end()
                         ->scalarNode('warning_email')->defaultValue('RutkaiFeatureFlipperBundle:FeatureCheck:warning.txt.twig')->end()
@@ -34,8 +35,9 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end() // template
                 ->arrayNode('email')
+                    ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('from')->isRequired()->end()
+                        ->scalarNode('from')->defaultValue('noreply@example.com')->end()
                         ->scalarNode('subject')->defaultValue('Expired feature')->end()
                     ->end()
                 ->end() // email

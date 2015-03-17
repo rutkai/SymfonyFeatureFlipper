@@ -14,7 +14,7 @@ Add this bundle to `composer.json` file:
 
     "require": {
         ...
-        "rutkai/featureflipperbundle": "dev-master"
+        "rutkai/featureflipperbundle": "~1.0"
     },
 
 Register it in AppKernel:
@@ -41,7 +41,7 @@ Usage
             alert_console: RutkaiFeatureFlipperBundle:FeatureCheck:alert.txt.twig     # Optional, output alert template for feature check command
             alert_email: RutkaiFeatureFlipperBundle:FeatureCheck:alert.txt.twig       # Optional, e-mail alert template for feature check command
         email:
-            from: architect@example.com # Required, sender of the warning
+            from: architect@example.com # Required, sender of the warning (default: noreply@example.com)
             subject: Expired feature    # Optional, subject for the warnings
         features:
             feature_id:
