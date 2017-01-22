@@ -1,0 +1,10 @@
+# PHP stuff
+/composer.phar
+/composer.lock
+/vendor
+
+# Testing
+/phpunit.xml
+
+# IDE
+/.idea

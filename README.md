@@ -1,6 +1,8 @@
 Advanced Feature Flipper (toggle) for Symfony2
 ==============================================
 
+[![Build Status](https://travis-ci.org/riskawarrior/SymfonyFeatureFlipper.svg?branch=master)](https://travis-ci.org/riskawarrior/SymfonyFeatureFlipper)
+
 This bundle provides a feature flipper interface for Symfony2. Main features:
 
 - Feature checks in twigs and controllers (via DI)
